@@ -25,8 +25,8 @@ export default product => {
     h5.textContent = product.price + ' €';
     div3.append(h5);
     let p = document.createElement('p');
-    h4.classList.add('card-text');
-    h4.textContent = product.description;
+    p.classList.add('card-text');
+    p.textContent = product.description;
     div3.append(p);
     let btnAdd = document.createElement('button');
     btnAdd.classList.add('btn');

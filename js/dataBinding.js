@@ -1,10 +1,4 @@
 
-import Ractive from 'ractive';
+export default element => {
 
-export default (target, template, data) => {
-    Ractive.Ractive({
-        target: target,
-        template: template,
-        data: { dataTab: data }
-    });
  }

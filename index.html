@@ -16,6 +16,8 @@
     <!-- Custom styles for this template -->
     <link href="css/catalogue.css" rel="stylesheet">
 
+    <script defer src="https://use.fontawesome.com/releases/v5.5.0/js/all.js" integrity="sha384-GqVMZRt5Gn7tB9D9q7ONtcp4gtHIUEW/yG7h98J7IpE3kpi+srfFyyB/04OV6pG0" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -43,7 +45,7 @@
 </nav>
 
 <div class="modal fade" id="panierModal" tabindex="-1" role="dialog" aria-labelledby="panierModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="panierModalLabel">Panier</h5>
@@ -226,16 +228,6 @@
 <!-- Bootstrap core JavaScript -->
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-<script id="templatePanier" type="text/ractive">
-	{{#each dataTab}}
-	    <tr>
-	      <td>{{ name }}</td>
-	      <td>{{ price }}</td>
-	      <td>{{ description }}</td>
-	    </tr>
-	{{/each}}
-</script>
 
 <script src="bundle.js"></script>
 

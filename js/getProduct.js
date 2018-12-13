@@ -1,7 +1,9 @@
 
-export function getProduct (tab, productId) {
-    tab.forEach(function (product) {
-        return product.id === productId;
+export default (tab, productId) => {
+    tab = tab.map(function (product) {
+        if (product.id == productId) {
+            return product;
+        }
     });
-    return null;
+    return tab.length > 0 ? tab[0] : null;
 };

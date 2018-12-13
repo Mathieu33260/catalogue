@@ -1,0 +1,134 @@
+[
+  {
+    "id": "1",
+    "name": "Sleek Cotton Keyboard",
+    "price": "701.59",
+    "description": "Strategist Rustic Plastic Pizza zero administration",
+    "image": "http://placehold.it/700x400",
+    "category": "Shoes",
+    "items": [],
+    "quantite": 1,
+    "baseColor": "#78457a"
+  },
+  {
+    "id": "2",
+    "name": "Incredible Steel Bacon",
+    "price": "528.31",
+    "description": "Designer",
+    "image": "http://placehold.it/700x400",
+    "category": "Movies",
+    "items": [],
+    "quantite": 1,
+    "baseColor": "#511819"
+  },
+  {
+    "id": "3",
+    "name": "Generic Wooden Ball",
+    "price": "838.24",
+    "description": "Chicken",
+    "image": "http://placehold.it/700x400",
+    "category": "Shoes",
+    "items": [],
+    "quantite": 1,
+    "baseColor": "#5c6335"
+  },
+  {
+    "id": "4",
+    "name": "Rustic Rubber Ball",
+    "price": "58.53",
+    "description": "Ergonomic Cotton Tuna contingency",
+    "image": "http://placehold.it/700x400",
+    "category": "Shoes",
+    "items": [],
+    "quantite": 1,
+    "baseColor": "#75553e"
+  },
+  {
+    "id": "5",
+    "name": "Handmade Concrete Salad",
+    "price": "541.28",
+    "description": "Grocery",
+    "image": "http://placehold.it/700x400",
+    "category": "Shoes",
+    "items": [],
+    "quantite": 1,
+    "baseColor": "#2c603c"
+  },
+  {
+    "id": "6",
+    "name": "Awesome Concrete Salad",
+    "price": "316.36",
+    "description": "Tasty Plastic Keyboard Squares",
+    "image": "http://placehold.it/700x400",
+    "category": "Computers",
+    "items": [],
+    "quantite": 1,
+    "baseColor": "#782028"
+  },
+  {
+    "id": "7",
+    "name": "Generic Concrete Salad",
+    "price": "634.09",
+    "description": "Assistant",
+    "image": "http://placehold.it/700x400",
+    "category": "Movies",
+    "items": [],
+    "quantite": 1,
+    "baseColor": "#616320"
+  },
+  {
+    "id": "8",
+    "name": "Intelligent Steel Shirt",
+    "price": "177.39",
+    "description": "logistical open-source Path",
+    "image": "http://placehold.it/700x400",
+    "category": "Home",
+    "items": [],
+    "quantite": 1,
+    "baseColor": "#6c007f"
+  },
+  {
+    "id": "9",
+    "name": "Unbranded Plastic Mouse",
+    "price": "742.30",
+    "description": "payment indigo National",
+    "image": "http://placehold.it/700x400",
+    "category": "Books",
+    "items": [],
+    "quantite": 1,
+    "baseColor": "#3d7055"
+  },
+  {
+    "id": "10",
+    "name": "Small Plastic Pants",
+    "price": "784.81",
+    "description": "parallelism Pizza",
+    "image": "http://placehold.it/700x400",
+    "category": "Outdoors",
+    "items": [],
+    "quantite": 1,
+    "baseColor": "#057a5e"
+  },
+  {
+    "id": "11",
+    "name": "Sleek Soft Bacon",
+    "price": "974.59",
+    "description": "Developer",
+    "image": "http://placehold.it/700x400",
+    "category": "Computers",
+    "items": [],
+    "quantite": 1,
+    "baseColor": "#194744"
+  },
+  {
+    "id": "12",
+    "name": "Rustic Concrete Shoes",
+    "price": "288.40",
+    "description": "Virtual pixel microchip",
+    "image": "http://placehold.it/700x400",
+    "category": "Electronics",
+    "items": [],
+    "quantite": 1,
+    "baseColor": "#230f20"
+  }
+]
