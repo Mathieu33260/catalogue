@@ -11,6 +11,11 @@ export default (color, itemId, product) => {
     });
     localStorage.setItem('products', JSON.stringify(productsArray));
 
-    var event = new CustomEvent("storage");
+    let toOpen = {
+        collapse: 'collapse' + product.id,
+        list: 'list-' + it.id + '-list'
+    };
+
+    var event = new CustomEvent("storage", {detail: toOpen});
     window.dispatchEvent(event);
 }

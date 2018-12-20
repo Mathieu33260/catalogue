@@ -1,6 +1,6 @@
 
 export default (tab, productId) => {
-    tab = tab.map(function (product) {
+    tab = tab.filter(function (product) {
         if (product.id == productId) {
             return product;
         }

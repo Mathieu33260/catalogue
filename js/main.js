@@ -10,6 +10,11 @@ document.addEventListener('DOMContentLoaded', function (e) {
 
     window.addEventListener('storage', function(e) {
         renderPanier();
+        let collapse = e.detail.collapse;
+        let list = e.detail.list;
+        $('#' + collapse).collapse('show');
+        $('#' + list).tab('show');
+
     });
 
     window.addEventListener('storageBaseProducts', function(e) {

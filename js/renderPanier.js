@@ -17,7 +17,7 @@ export default () => {
 
             let index2 = 1;
             product.items.forEach(function (i) {
-                itemContent += '<div class="tab-pane fade" id="list-'+ index2 +'" role="tabpanel">' +
+                itemContent += '<div class="tab-pane fade" id="list-'+ i.id +'" role="tabpanel">' +
                     '      <div class="col-4">' +
                     '        <img class="mw-100" src="' + product.image + '" alt="' + product.name + '">' +
                     '      </div>' +
@@ -26,7 +26,7 @@ export default () => {
                     '        <p>' + product.category + '</p>' +
                     '        <p>' + product.price + '€</p>' +
                     '      </div>' +
-                    '          <select style="background-color: ' + i.color + '" itemid="' + i.id + '" class="form-control" id="colorSelect' + index2 + '">\n' +
+                    '          <select style="background-color: ' + i.color + '" itemid="' + i.id + '" class="form-control selectItem" id="colorSelect' + index2 + '">\n' +
                     '            <option style="background-color: ' + i.color + '" selected></option>\n' +
                     '            <option class="bg-danger" value="red"></option>\n' +
                     '            <option class="bg-primary" value="blue"></option>\n' +
@@ -34,8 +34,8 @@ export default () => {
                     '            <option class="bg-warning" value="yellow"></option>\n' +
                     '          </select>\n' +
                     '</div>\n';
-                itemTab += '<a class="list-group-item list-group-item-action" id="list-' + index2 + '-list" ' +
-                    'data-toggle="list" href="#list-' + index2 + '" role="tab">' + index2 + '</a>';
+                itemTab += '<a class="list-group-item list-group-item-action" id="list-' + i.id + '-list" ' +
+                    'data-toggle="list" href="#list-' + i.id + '" role="tab">' + index2 + '</a>';
 
 
                 index2 ++;
@@ -45,7 +45,8 @@ export default () => {
                 "  <div class='card-header' id='heading" + index + "'>" +
                 '    <h5 class="mb-0">' +
                 '      <div class="d-flex justify-content-between row">' +
-                '        <div class="form-inline d-flex justify-content-between col-5" data-toggle="collapse" data-target="#collapse' + index + '" aria-controls="collapse' + index + '">' +
+                '        <div class="form-inline d-flex justify-content-between col-5" data-toggle="collapse" ' +
+                'data-target="#collapse' + product.id + '" aria-controls="collapse' + index + '" id="collapseControl' + product.id + '">' +
                 '          <button class="btn bg-transparent border" type="button">' +
                 '            <i class="fas fa-angle-down fa-3x" style="color: #4e555b;"></i> ' +
                 '          </button>        ' +
@@ -59,7 +60,7 @@ export default () => {
                 '      </div>' +
                 '    </h5>' +
                 '  </div>' +
-                '  <div class="collapse" id="collapse' + index + '" aria-labelledby="heading' + index + '" data-parent="#accordion">' +
+                '  <div class="collapse" id="collapse' + product.id + '" aria-labelledby="heading' + product.id + '" data-parent="#accordion">' +
                 '    <div class="card-body">' +
                 '       <div class="row">\n' +
                 '           <div class="col-3">\n' +
@@ -85,7 +86,7 @@ export default () => {
                 updateQte(-1, product);
             });
 
-            $('select').on('change', function() {
+            $('.selectItem').on('change', function() {
                 updateColor($(this).val(), $(this).attr('itemid'), product);
             });
 
