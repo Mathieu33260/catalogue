@@ -1,22 +1,16 @@
-import addPanier from './addPanier.js';
+import getItem from "./getItem.js";
 import getProduct from "./getProduct";
-import removePanier from "./removePanier";
 
-export default (color, product) => {
-    product.color = color;
-
+export default (color, itemId, product) => {
     let products = new Set(JSON.parse(localStorage.getItem('products')));
-
-    //product = getProduct(Array.from(products), product.id);
-    product.color = color;
-
-    removePanier(product);
-
-    products.add(product);
+    product = getProduct(Array.from(products), product.id);
+    let it = getItem(product.items, itemId);
+    it.color = color;
     let productsArray = Array.from(products).sort(function (a, b) {
         return parseInt(a.id) - parseInt(b.id);
     });
     localStorage.setItem('products', JSON.stringify(productsArray));
 
+    var event = new CustomEvent("storage");
     window.dispatchEvent(event);
 }

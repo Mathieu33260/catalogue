@@ -6,36 +6,20 @@ export default product => {
     div1.classList.add('col-lg-4');
     div1.classList.add('col-md-6');
     div1.classList.add('mb-4');
-    let div2 = document.createElement('div');
-    div2.classList.add('card');
-    div2.classList.add('h-100');
-    div1.append(div2);
-    let img = document.createElement('img');
-    img.classList.add('card-img-top');
-    img.src = product.image;
-    div2.append(img);
-    let div3 = document.createElement('div');
-    div3.classList.add('card-body');
-    div2.append(div3);
-    let h4 = document.createElement('h4');
-    h4.classList.add('card-title');
-    h4.textContent = product.name;
-    div3.append(h4);
-    let h5 = document.createElement('h5');
-    h5.textContent = product.price + ' €';
-    div3.append(h5);
-    let p = document.createElement('p');
-    p.classList.add('card-text');
-    p.textContent = product.description;
-    div3.append(p);
-    let btnAdd = document.createElement('button');
-    btnAdd.classList.add('btn');
-    btnAdd.classList.add('btn-success');
-    btnAdd.type = 'button';
-    btnAdd.textContent = "Ajouter au panier";
-    btnAdd.addEventListener('click', function () {
+
+    $(div1).append('<div class="card h-100">\n' +
+        '      <img class="card-img-top" src="' + product.image + '">\n' +
+        '      <div class="card-body">\n' +
+        '         <h4 class="card-title">' + product.name + '</h4>\n' +
+        '         <h5>' + product.price + '</h5>\n' +
+        '         <p class="card-text">' + product.description + '</p>\n' +
+        '         <button id="addPanier' + product.id + '" class="btn btn-success" type="button">Ajouter au panier</button>\n' +
+        '      </div>\n' +
+        '   </div>');
+
+    $('#addPanier' + product.id).click(function () {
         addPanier(product);
     });
-    div3.append(btnAdd);
+
     return div1;
 };

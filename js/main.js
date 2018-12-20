@@ -12,10 +12,32 @@ document.addEventListener('DOMContentLoaded', function (e) {
         renderPanier();
     });
 
-    Promise.all([url].map(jsonGet)).then((result) => {
-        let products = result[0];
+    window.addEventListener('storageBaseProducts', function(e) {
+        let products = new Set(JSON.parse(localStorage.getItem('baseProducts')));
         renderAllProducts(products);
-        renderPanier();
     });
+
+    if (localStorage.getItem('baseProducts')) {
+        let products = new Set(JSON.parse(localStorage.getItem('baseProducts')));
+
+        let productsArray = Array.from(products).sort(function (a, b) {
+            return parseInt(a.id) - parseInt(b.id);
+        });
+
+        renderAllProducts(productsArray);
+        renderPanier();
+    } else {
+        Promise.all([url].map(jsonGet)).then((result) => {
+            let products = result[0];
+
+            let productsArray = products.sort(function (a, b) {
+                return parseInt(a.id) - parseInt(b.id);
+            });
+            localStorage.setItem('baseProducts', JSON.stringify(productsArray));
+
+            renderAllProducts(products);
+            renderPanier();
+        });
+    }
 
 }, { once: true });
