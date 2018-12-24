@@ -2,6 +2,9 @@
 import jsonGet from './jsonGet.js';
 import renderAllProducts from "./renderAllProducts";
 import renderPanier from './renderPanier.js';
+import sortProduct from "./sortProduct";
+import getProductLS from "./getProductLS";
+import setProductLS from "./setProductLS";
 
 document.addEventListener('DOMContentLoaded', function (e) {
 
@@ -10,35 +13,29 @@ document.addEventListener('DOMContentLoaded', function (e) {
 
     window.addEventListener('storage', function(e) {
         renderPanier();
-        let collapse = e.detail.collapse;
-        let list = e.detail.list;
-        $('#' + collapse).collapse('show');
-        $('#' + list).tab('show');
-
+        if (e.detail) {
+            let collapse = e.detail.collapse;
+            let list = e.detail.list;
+            $('#' + collapse).collapse('show');
+            $('#' + list).tab('show');
+        }
     });
 
     window.addEventListener('storageBaseProducts', function(e) {
-        let products = new Set(JSON.parse(localStorage.getItem('baseProducts')));
+        let products = getProductLS('baseProducts');
         renderAllProducts(products);
     });
 
     if (localStorage.getItem('baseProducts')) {
-        let products = new Set(JSON.parse(localStorage.getItem('baseProducts')));
+        let products = getProductLS('baseProducts');
 
-        let productsArray = Array.from(products).sort(function (a, b) {
-            return parseInt(a.id) - parseInt(b.id);
-        });
-
-        renderAllProducts(productsArray);
+        renderAllProducts(sortProduct(products));
         renderPanier();
     } else {
         Promise.all([url].map(jsonGet)).then((result) => {
             let products = result[0];
 
-            let productsArray = products.sort(function (a, b) {
-                return parseInt(a.id) - parseInt(b.id);
-            });
-            localStorage.setItem('baseProducts', JSON.stringify(productsArray));
+            setProductLS('baseProducts', sortProduct(products));
 
             renderAllProducts(products);
             renderPanier();

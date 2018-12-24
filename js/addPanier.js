@@ -1,53 +1,36 @@
-import removePanier from './removePanier.js';
 import getProduct from './getProduct.js';
+import sortProduct from "./sortProduct";
+import getProductLS from "./getProductLS";
+import setProductLS from "./setProductLS";
+import dispatchEvent from "./dispatchEvent";
+import isInsideLS from "./isInsideLS";
+import createItem from "./createItem";
 
 export default product => {
     let products = new Set();
-    var event = new CustomEvent("storage");
-    if (localStorage.getItem('products')) {
-        if (!JSON.parse(localStorage.getItem('products')).some(p => (p.id === product.id))) {
-            products = new Set(JSON.parse(localStorage.getItem('products')));
-            let item = {
-                "id": product.id + "-" + product.quantite,
-                "color": product.baseColor
-            };
-            product.items.push(item);
-            products.add(product);
-            let productsArray = Array.from(products).sort(function (a, b) {
-                return parseInt(a.id) - parseInt(b.id);
-            });
-            localStorage.setItem('products', JSON.stringify(productsArray));
 
-            window.dispatchEvent(event);
+    if (localStorage.getItem('products')) {
+        if (!isInsideLS('products', product)) {
+            products = getProductLS('products');
+            createItem(product);
+            products.add(product);
+
+            setProductLS('products', sortProduct(products));
+            dispatchEvent('storage', null);
         } else {
-            products = new Set(JSON.parse(localStorage.getItem('products')));
+            products = getProductLS('products');
             product = getProduct(Array.from(products), product.id);
             product.quantite ++;
-            let item = {
-                "id": product.id + "-" + product.quantite,
-                "color": product.baseColor
-            };
-            product.items.push(item);
-            //products.add(product);
-            let productsArray = Array.from(products).sort(function (a, b) {
-                return parseInt(a.id) - parseInt(b.id);
-            });
-            localStorage.setItem('products', JSON.stringify(productsArray));
+            createItem(product);
 
-            window.dispatchEvent(event);
+            setProductLS('products', sortProduct(products));
+            dispatchEvent('storage', null);
         }
     } else {
-        let item = {
-            "id": product.id + "-" + product.quantite,
-            "color": product.baseColor
-        };
-        product.items.push(item);
+        createItem(product);
         products.add(product);
-        let productsArray = Array.from(products).sort(function (a, b) {
-            return parseInt(a.id) - parseInt(b.id);
-        });
-        localStorage.setItem('products', JSON.stringify(productsArray));
 
-        window.dispatchEvent(event);
+        setProductLS('products', sortProduct(products));
+        dispatchEvent('storage', null);
     }
 }

@@ -3,6 +3,7 @@ import renderProduct from './renderProduct';
 import updateBaseColor from "./updateBaseColor";
 import addPanier from "./addPanier";
 import getProduct from "./getProduct";
+import getProductLS from "./getProductLS";
 
 export default products => {
     $('#products').empty();
@@ -11,7 +12,7 @@ export default products => {
     });
 
     $('.btnAddPanier').on('click', function() {
-        let products = new Set(JSON.parse(localStorage.getItem('baseProducts')));
+        let products = getProductLS('baseProducts');
         let product = getProduct(Array.from(products), $(this).attr('itemid'));
         addPanier(product);
     });

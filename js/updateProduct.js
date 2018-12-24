@@ -1,18 +1,18 @@
-import addPanier from './addPanier.js';
+import sortProduct from './sortProduct.js';
 import removePanier from './removePanier.js';
+import getProductLS from "./getProductLS";
+import setProductLS from "./setProductLS";
+import dispatchEvent from "./dispatchEvent";
 
 export default (qte, color, product) => {
     product.quantite += qte;
     product.color = color;
     removePanier(product);
     if (product.quantite != 0) {
-        let products = new Set(JSON.parse(localStorage.getItem('products')));
+        let products = getProductLS('products');
         products.add(product);
-        let productsArray = Array.from(products).sort(function (a, b) {
-            return parseInt(a.id) - parseInt(b.id);
-        });
-        localStorage.setItem('products', JSON.stringify(productsArray));
+
+        setProductLS('products', sortProduct(products));
     }
-    var event = new CustomEvent("storage");
-    window.dispatchEvent(event);
+    dispatchEvent('storage', null);
 }

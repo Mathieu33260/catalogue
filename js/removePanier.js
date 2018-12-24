@@ -1,17 +1,22 @@
 import getProduct from './getProduct.js';
+import getProductLS from "./getProductLS";
+import setProductLS from "./setProductLS";
+import sortProduct from "./sortProduct";
+import dispatchEvent from "./dispatchEvent";
+import isInsideLS from "./isInsideLS";
 
 export default product => {
     let products = new Set();
-    var event = new CustomEvent("storage");
+
     if (localStorage.getItem('products')) {
-        if (JSON.parse(localStorage.getItem('products')).some(p => (p.id === product.id))) {
-            products = new Set(JSON.parse(localStorage.getItem('products')));
+        if (isInsideLS('products', product)) {
+            products = getProductLS('products');
             product = getProduct(Array.from(products), product.id);
             products.delete(product);
 
-            localStorage.setItem('products', JSON.stringify(Array.from(products)));
+            setProductLS('products', sortProduct(products));
 
-            window.dispatchEvent(event);
+            dispatchEvent('storage', null);
         }
     }
 }

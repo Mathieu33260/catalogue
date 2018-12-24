@@ -1,21 +1,22 @@
 import getItem from "./getItem.js";
 import getProduct from "./getProduct";
+import sortProduct from "./sortProduct";
+import getProductLS from "./getProductLS";
+import setProductLS from "./setProductLS";
+import dispatchEvent from "./dispatchEvent";
 
 export default (color, itemId, product) => {
-    let products = new Set(JSON.parse(localStorage.getItem('products')));
+    let products = getProductLS('products');
     product = getProduct(Array.from(products), product.id);
     let it = getItem(product.items, itemId);
     it.color = color;
-    let productsArray = Array.from(products).sort(function (a, b) {
-        return parseInt(a.id) - parseInt(b.id);
-    });
-    localStorage.setItem('products', JSON.stringify(productsArray));
+
+    setProductLS('products', sortProduct(products));
 
     let toOpen = {
         collapse: 'collapse' + product.id,
         list: 'list-' + it.id + '-list'
     };
 
-    var event = new CustomEvent("storage", {detail: toOpen});
-    window.dispatchEvent(event);
+    dispatchEvent('storage', toOpen);
 }
