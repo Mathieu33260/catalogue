@@ -18,7 +18,7 @@ export default product => {
         '            <option class="bg-success" value="green"></option>\n' +
         '            <option class="bg-warning" value="yellow"></option>\n' +
         '          </select>\n' +
-        '         <button id="addPanier' + product.id + '" itemid="' + product.id + '" class="btn btn-success btnAddPanier" type="button">Ajouter au panier</button>\n' +
+        '         <button id="addCart' + product.id + '" itemid="' + product.id + '" class="btn btn-success btnAddCart" type="button">Ajouter au panier</button>\n' +
         '      </div>\n' +
         '   </div>');
 

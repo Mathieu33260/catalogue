@@ -1,9 +1,9 @@
-import getProduct from './getProduct.js';
-import sortProduct from "./sortProduct";
-import getProductLS from "./getProductLS";
-import setProductLS from "./setProductLS";
-import dispatchEvent from "./dispatchEvent";
-import isInsideLS from "./isInsideLS";
+import getProduct from '../Getters/getProduct.js';
+import sortProduct from "../Utils/sortProduct";
+import getProductLS from "../Getters/getProductLS";
+import setProductLS from "../Setters/setProductLS";
+import dispatchEvent from "../Utils/dispatchEvent";
+import isInsideLS from "../Getters/isInsideLS";
 import createItem from "./createItem";
 
 export default product => {

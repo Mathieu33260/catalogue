@@ -1,9 +1,9 @@
-import getProduct from "./getProduct";
-import getProductLS from "./getProductLS";
-import setProductLS from "./setProductLS";
-import sortProduct from "./sortProduct";
-import dispatchEvent from "./dispatchEvent";
-import isInsideLS from "./isInsideLS";
+import getProduct from "../Getters/getProduct";
+import getProductLS from "../Getters/getProductLS";
+import setProductLS from "../Setters/setProductLS";
+import sortProduct from "../Utils/sortProduct";
+import dispatchEvent from "../Utils/dispatchEvent";
+import isInsideLS from "../Getters/isInsideLS";
 
 export default product => {
     let products = new Set();

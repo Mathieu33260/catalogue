@@ -1,9 +1,9 @@
-import getItem from "./getItem.js";
-import getProduct from "./getProduct";
-import sortProduct from "./sortProduct";
-import getProductLS from "./getProductLS";
-import setProductLS from "./setProductLS";
-import dispatchEvent from "./dispatchEvent";
+import getItem from "../Getters/getItem.js";
+import getProduct from "../Getters/getProduct";
+import sortProduct from "../Utils/sortProduct";
+import getProductLS from "../Getters/getProductLS";
+import setProductLS from "../Setters/setProductLS";
+import dispatchEvent from "../Utils/dispatchEvent";
 
 export default (color, itemId, product) => {
     let products = getProductLS('products');

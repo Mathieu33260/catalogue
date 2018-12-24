@@ -1,18 +1,17 @@
 
-import jsonGet from './jsonGet.js';
-import renderAllProducts from "./renderAllProducts";
-import renderPanier from './renderPanier.js';
-import sortProduct from "./sortProduct";
-import getProductLS from "./getProductLS";
-import setProductLS from "./setProductLS";
+import jsonGet from './Utils/jsonGet.js';
+import renderAllProducts from "./Render/Product/renderAllProducts";
+import renderCart from './Render/Cart/renderCart.js';
+import sortProduct from "./Utils/sortProduct";
+import getProductLS from "./Getters/getProductLS";
+import setProductLS from "./Setters/setProductLS";
 
 document.addEventListener('DOMContentLoaded', function (e) {
 
-    //let url = 'http://5be3fd5b95e4340013f88e47.mockapi.io/product';
     let url = 'data/products.json';
 
     window.addEventListener('storage', function(e) {
-        renderPanier();
+        renderCart();
         if (e.detail) {
             let collapse = e.detail.collapse;
             let list = e.detail.list;
@@ -30,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
         let products = getProductLS('baseProducts');
 
         renderAllProducts(sortProduct(products));
-        renderPanier();
+        renderCart();
     } else {
         Promise.all([url].map(jsonGet)).then((result) => {
             let products = result[0];
@@ -38,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
             setProductLS('baseProducts', sortProduct(products));
 
             renderAllProducts(products);
-            renderPanier();
+            renderCart();
         });
     }
 

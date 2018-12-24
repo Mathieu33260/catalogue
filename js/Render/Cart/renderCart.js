@@ -1,12 +1,12 @@
-import updateQte from "./updateQte";
-import updateColor from "./updateColor";
-import getProductLS from "./getProductLS";
-import renderItemContent from "./renderItemContent";
-import renderItemTab from "./renderItemTab";
+import updateQte from "../../Update/updateQte";
+import updateColor from "../../Update/updateColor";
+import getProductLS from "../../Getters/getProductLS";
+import renderItemContent from "../Item/renderItemContent";
+import renderItemTab from "../Item/renderItemTab";
 import renderAccordion from "./renderAccordion";
 
 export default () => {
-    $('#panierContent').empty();
+    $('#CartContent').empty();
     if (localStorage.getItem('products')) {
 
         let products = getProductLS('products');
@@ -16,7 +16,7 @@ export default () => {
             accordion.classList.add('accordion');
             accordion.id = 'accordion';
 
-            $('#panierContent').append(accordion);
+            $('#CartContent').append(accordion);
 
             products.forEach(function (product) {
 
@@ -48,9 +48,9 @@ export default () => {
 
             });
         } else {
-            $('#panierContent').append("<p>Pas d'articles dans le panier</p>");
+            $('#CartContent').append("<p>Pas d'articles dans le panier</p>");
         }
     } else {
-        $('#panierContent').append("<p>Pas d'articles dans le panier</p>");
+        $('#CartContent').append("<p>Pas d'articles dans le panier</p>");
     }
 }

@@ -1,9 +1,9 @@
 
 import renderProduct from './renderProduct';
-import updateBaseColor from "./updateBaseColor";
-import addPanier from "./addPanier";
-import getProduct from "./getProduct";
-import getProductLS from "./getProductLS";
+import updateBaseColor from "../../Update/updateBaseColor";
+import addCart from "../../Add/addCart";
+import getProduct from "../../Getters/getProduct";
+import getProductLS from "../../Getters/getProductLS";
 
 export default products => {
     $('#products').empty();
@@ -11,10 +11,10 @@ export default products => {
         $('#products').append(renderProduct(product));
     });
 
-    $('.btnAddPanier').on('click', function() {
+    $('.btnAddCart').on('click', function() {
         let products = getProductLS('baseProducts');
         let product = getProduct(Array.from(products), $(this).attr('itemid'));
-        addPanier(product);
+        addCart(product);
     });
 
     $('.selectProduct').on('change', function() {
