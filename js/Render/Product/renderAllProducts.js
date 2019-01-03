@@ -4,8 +4,10 @@ import updateBaseColor from "../../Update/updateBaseColor";
 import addCart from "../../Add/addCart";
 import getProduct from "../../Getters/getProduct";
 import getProductLS from "../../Getters/getProductLS";
+import renderListCategories from "../Category/renderListCategories";
 
 export default products => {
+    renderListCategories();
     $('#products').empty();
     products.forEach(function (product) {
         $('#products').append(renderProduct(product));

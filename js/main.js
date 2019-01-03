@@ -25,6 +25,17 @@ document.addEventListener('DOMContentLoaded', function (e) {
         renderAllProducts(products);
     });
 
+    $('#pay').click(function (e) {
+        $.ajax({
+            method: "POST",
+            url: "/",
+            data: JSON.stringify(Array.from(getProductLS('products'))),
+            success:function() {
+                alert("Panier bien envoyé !");
+            }
+        })
+    });
+
     if (localStorage.getItem('baseProducts')) {
         let products = getProductLS('baseProducts');
 
