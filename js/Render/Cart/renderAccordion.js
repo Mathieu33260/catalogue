@@ -10,6 +10,7 @@ export default (itemTab, itemContent, product) => {
         '          <button class="btn bg-transparent" type="button">' + product.name + '</button>' +
         '        </div>' +
         '        <div class="form-inline d-flex justify-content-between col-5">' +
+        '          <span>' + product.price * product.quantite + '€</span>\n' +
         '          <button type="button" class="btn btn-danger btn-sm" id="suppQte' + product.id +  '">-</button>\n' +
         '          <span id="qte' + product.id +  '">' + product.quantite + '</span>\n' +
         '          <button type="button" class="btn btn-success btn-sm" id="addQte' + product.id +  '">+</button>' +

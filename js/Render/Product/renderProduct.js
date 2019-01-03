@@ -9,7 +9,7 @@ export default product => {
         '      <img class="card-img-top" src="' + product.image + '">\n' +
         '      <div class="card-body">\n' +
         '         <h4 class="card-title">' + product.name + '</h4>\n' +
-        '         <h5>' + product.price + '</h5>\n' +
+        '         <h5>' + product.price + '€</h5>\n' +
         '         <p class="card-text">' + product.description + '</p>\n' +
         '          <select style="background-color: ' + product.baseColor + '" itemid="' + product.id + '" class="form-control selectProduct" id="baseColorSelect' + product.id + '">\n' +
         '            <option style="background-color: ' + product.baseColor + '" selected></option>\n' +

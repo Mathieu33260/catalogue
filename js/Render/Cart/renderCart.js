@@ -17,17 +17,19 @@ export default () => {
             accordion.id = 'accordion';
 
             $('#CartContent').append(accordion);
+            let totalPrice = 0;
+            let totalProduct = 0;
 
             products.forEach(function (product) {
 
                 let itemContent = '';
                 let itemTab = '';
-                let index = 1;
+                totalPrice += product.price * product.quantite;
+                totalProduct += product.quantite;
 
                 product.items.forEach(function (i) {
                     itemContent += renderItemContent(product, i);
-                    itemTab += renderItemTab(i, index);
-                    index ++;
+                    itemTab += renderItemTab(i);
                 });
 
                 $('#accordion').append(renderAccordion(itemTab, itemContent, product));
@@ -47,6 +49,8 @@ export default () => {
                 });
 
             });
+
+            $('#totalPrice').text(totalPrice);
         } else {
             $('#CartContent').append("<p>Pas d'articles dans le panier</p>");
         }
